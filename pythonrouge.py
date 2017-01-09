@@ -8,7 +8,7 @@ import subprocess
 import sys
 import shutil
 
-def pythonrouge(peer_sentence, model_sentence, ROUGE_path='./pythonrouge/RELEASE-1.5.5/ROUGE-1.5.5.pl', data_path='./pythonrouge/RELEASE-1.5.5/data'):
+def pythonrouge(peer_sentence, model_sentence, ROUGE_path='./RELEASE-1.5.5/ROUGE-1.5.5.pl', data_path='./RELEASE-1.5.5/data'):
     temp_dir = tempfile.mkdtemp()
     summary_dir = os.path.join(temp_dir, "model")
     reference_dir = os.path.join(temp_dir, "peer")

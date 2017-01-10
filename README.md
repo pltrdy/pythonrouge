@@ -1,9 +1,11 @@
 # pythonrouge
-This is the python script to use ROUGE, summarization evaluation toolkit.
+This is the python script to use [ROUGE](http://www.berouge.com/Pages/default.aspx), summarization evaluation toolkit.
   
 In this implementation, you can evaluate ROUGE-1, ROUGE-2, ROUGE-3, ROUGE-SU4, and ROUGE-L. You can evaluate your model summary with a peer summary right now. It's not necessary to make an xml file as in the general ROUGE package.
 
 Any feedbacks or comments are welcome.
+
+**To compare an automatically generated summary with a reference file, please take a look at [file2rouge](https://github.com/pltrdy/files2rouge)**
 
 # Getting Started
 

@@ -72,7 +72,7 @@ def pythonrouge(peer_sentence, model_sentence, ROUGE_path='./RELEASE-1.5.5/ROUGE
         rouge = 'ROUGE-{}'.format(n)
         match    = re.findall('X ROUGE-{} Average_F: ([0-9.]+)'.format(n), line)
         l_match  = re.findall('X ROUGE-L Average_F: ([0-9.]+)', line)  #ROUGE-L
-        su_match = re.findall('X ROUGE-S4 Average_F: ([0-9.]+)', line)   #ROUGE-SU4
+        s4_match = re.findall('X ROUGE-S4 Average_F: ([0-9.]+)', line)   #ROUGE-S4
         if match:
             F_measure_list.append(float(match[0]))
             result[rouge] = float(match[0])
@@ -80,8 +80,8 @@ def pythonrouge(peer_sentence, model_sentence, ROUGE_path='./RELEASE-1.5.5/ROUGE
         elif l_match:
             F_measure_list.append(float(l_match[0]))    
             result['ROUGE-L'] = float(l_match[0])
-        elif su_match:                
-            F_measure_list.append(float(su_match[0]))
-            result['ROUGE-SU4'] = float(su_match[0])
+        elif s4_match:
+            F_measure_list.append(float(s4_match[0]))
+            result['ROUGE-S4'] = float(s4_match[0])
     shutil.rmtree(temp_dir)
     return result

@@ -32,6 +32,29 @@ score = pythonrouge(ROUGE, data_path, model, peer)
 print(score)
 ```
 
+Output:
+```json
+{"F": {
+  "ROUGE-1": 0.64516,
+  "ROUGE-2": 0.55172,
+  "ROUGE-3": 0.44444,
+  "ROUGE-L": 0.38709,
+  "ROUGE-S4": 0.384},
+"P": {
+  "ROUGE-1": 1.0,
+  "ROUGE-2": 0.88889,
+  "ROUGE-3": 0.75,
+  "ROUGE-L": 0.6,
+  "ROUGE-S4": 0.68571},
+"R": {
+  "ROUGE-1": 0.47619,
+  "ROUGE-2": 0.4,
+  "ROUGE-3": 0.31579,
+  "ROUGE-L": 0.28571,
+  "ROUGE-S4": 0.26667}
+}
+```
+
 See and run `example.py`
 
 # Known Issues

@@ -65,23 +65,22 @@ def pythonrouge(peer_sentence, model_sentence, ROUGE_path='./RELEASE-1.5.5/ROUGE
     output = subprocess.check_output([ROUGE_path, "-e", data_path, "-a", "-m", "-2", "4","-n", "3", abs_xml_path], stderr=subprocess.STDOUT)
     output = output.decode("utf-8")
     outputs = output.strip().split("\n")
-    F_measure_list = []
-    result = dict()
-    n = 1
-    for line in outputs:
-        rouge = 'ROUGE-{}'.format(n)
-        match    = re.findall('X ROUGE-{} Average_F: ([0-9.]+)'.format(n), line)
-        l_match  = re.findall('X ROUGE-L Average_F: ([0-9.]+)', line)  #ROUGE-L
-        s4_match = re.findall('X ROUGE-S4 Average_F: ([0-9.]+)', line)   #ROUGE-S4
-        if match:
-            F_measure_list.append(float(match[0]))
-            result[rouge] = float(match[0])
-            n += 1
-        elif l_match:
-            F_measure_list.append(float(l_match[0]))    
-            result['ROUGE-L'] = float(l_match[0])
-        elif s4_match:
-            F_measure_list.append(float(s4_match[0]))
-            result['ROUGE-S4'] = float(s4_match[0])
+    metrics = dict()
+    for avg_metric in ["F", "R", "P"]:
+      n = 1
+      result = dict()
+      for line in outputs:
+          rouge = 'ROUGE-{}'.format(n)
+          match    = re.findall('X ROUGE-{} Average_{}: ([0-9.]+)'.format(n, avg_metric), line)
+          l_match  = re.findall('X ROUGE-L Average_{}: ([0-9.]+)'.format(avg_metric), line)  #ROUGE-L
+          s4_match = re.findall('X ROUGE-S4 Average_{}: ([0-9.]+)'.format(avg_metric), line)   #ROUGE-S4
+          if match:
+              result[rouge] = float(match[0])
+              n += 1
+          elif l_match:
+              result['ROUGE-L'] = float(l_match[0])
+          elif s4_match:
+              result['ROUGE-S4'] = float(s4_match[0])
+      metrics[avg_metric] = result
     shutil.rmtree(temp_dir)
-    return result
+    return metrics

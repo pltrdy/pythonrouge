@@ -1,14 +1,14 @@
-from setuptools import setup
-
+from setuptools import setup, find_packages
+import pythonrouge
 setup(
     name="pythonrouge",
-    version="0.2",
+    version=pythonrouge.__version__,
     description="ROUGE script using python",
     url="http://github.com/tagucci/pythonrouge",
     author="tagucci",
     author_email="taguchi.yuya.to0@is.naist.jp",
     keywords=["NL", "CL", "natural language processing", "computational linguistics", "summarization"],
-    packages=["./"],
+    packages=find_packages(),
     package_data={
         'pythonrouge': ['ROUGE-1.5.5/*.*',
               'ROUGE-1.5.5/XML/*.*',

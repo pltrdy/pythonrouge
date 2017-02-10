@@ -15,7 +15,7 @@ Any feedbacks or comments are welcome.
 git clone https://github.com/pltrdy/pythonrouge.git
 
 # install using pip
-pip install .
+sudo python setup.py install
 ```
 
 **2) Import and use**

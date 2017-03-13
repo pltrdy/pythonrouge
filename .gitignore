@@ -1,0 +1,11 @@
+build
+build/*
+
+dist
+dist/*
+
+*.pyc
+
+pythonrouge.egg-info/
+pythonrouge.egg-info/*
+

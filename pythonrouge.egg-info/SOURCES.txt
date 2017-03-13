@@ -1,7 +1,0 @@
-setup.py
-pythonrouge/__init__.py
-pythonrouge/pythonrouge.py
-pythonrouge.egg-info/PKG-INFO
-pythonrouge.egg-info/SOURCES.txt
-pythonrouge.egg-info/dependency_links.txt
-pythonrouge.egg-info/top_level.txt
